@@ -25,6 +25,18 @@
       removeErrorMessage(document.getElementById('bio'));
     }
 
-    
+    // did it pass validation and can the form be submitted?
+    // loop through the valid object, if there are any errors set isFormValid to false
+    for (var field in valid) { // loop through each property in the valid object
+      if (!valid[field]) { // if the form control / field is not valid
+        isFormValid = false; // the form is not valid
+        break; // stops the loop because an something is not valid
+      }
+      isFormValid = true; // form is valid and is ok to submit
+    }
+    // if the form did not pass validation, prevent it from submitting
+    if (!isFormValid) { // if isFormValid is false
+      e.preventDefault();
+    }
   });
 }());
