@@ -16,6 +16,15 @@
       }
       valid[elements[i].id] = isVaild; // add element to the valid object
     }
+
+    // custom validation
+    if (!validateBio()) { // is the bio too long?
+      showErrorMessage(document.getElementById('bio'));
+      valid.bio = false;
+    } else {
+      removeErrorMessage(document.getElementById('bio'));
+    }
+
     
   });
 }());
