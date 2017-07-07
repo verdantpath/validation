@@ -1,5 +1,5 @@
 (function() {
-  document.forms.register.noValidate = true;
+  document.forms.register.noValidate = true; // disable HTML5 validation using JavaScript instead to make it consistent among browsers
   $('form').on('submit', function(e) {
     var elements = this.elements; // Collection of form controls
     var valid = {}; // Keeps track of each form control being valid or not
@@ -39,4 +39,18 @@
       e.preventDefault();
     }
   });
+
+  // functions for generic checks
+  // check if the field is required and if so does it have a value?
+  function validateRequired(el) {
+    if (isRequired(el)) { // does this element contain a required attribute?
+      var valid = !isEmpty(el); // is the value of the element empty?
+      if (!valid) { // if valid variable is false
+        setErrorMessage(el, 'Field is required'); // if valid is false an error message is set
+      }
+      return valid;
+    }
+    return true;
+  }
+
 }());
