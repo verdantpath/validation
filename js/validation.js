@@ -48,9 +48,20 @@
       if (!valid) { // if valid variable is false
         setErrorMessage(el, 'Field is required'); // if valid is false an error message is set
       }
-      return valid;
+      return valid; // the valid variable is returned (true / false) and the function ends
     }
     return true;
+  }
+
+  // check if the element is required (called by validateRequired)
+  function isRequired(el) {
+    return ((typeof el.required === 'boolean') && el.required) ||
+      (typeof el.required === 'string');
+  }
+
+  // check if the element is empty, or value is the same as placeholder
+  function isEmpty(el) {
+    return !el.value || el.value === el.placeholder;
   }
 
 }());
