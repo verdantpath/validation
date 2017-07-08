@@ -19,5 +19,12 @@
     // if difference (now - birthday) is less than 13 years
     // show parents consent checkbox
     // to get 13 years = ms * secs * mins * hrs * days * years
+    if ((now - date) < (1000 * 60 * 60 * 24 * 365 *13)) {
+      $consentContainer.removeClass('hide');
+      $parentsConsent.focus();
+    } else {
+      $consentContainer.addClass('hide');
+      $parentsConsent.prop('checked', false);
+    }
   }
 }());
