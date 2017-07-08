@@ -77,4 +77,14 @@
     $errorContainer.text($(el).data('errorMessage'));
   }
 
+  function validateTypes(el) {
+    if (!el.value) return true; // if element has no value return true and exit function
+    var type = $(el).data('type') || el.getAttribute('type'); // get the type of input
+    if (typeof validateType[type] === 'function') { // is type a method of validate object?
+      return validateType[type](el); // if yes check if the value validates
+    } else {
+      return true; // return true as it cannot be tested
+    }
+  }
+
 }());
