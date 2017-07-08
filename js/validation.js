@@ -112,7 +112,7 @@
     return valid;
   }
 
-  // check that the passwords match and are 8 or more characters
+  // check that the passwords are 8 or more characters
   function validatePassword() {
     var password = document.getElementById('password');
     var valid = password.value.length >= 8;
