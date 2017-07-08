@@ -64,4 +64,17 @@
     return !el.value || el.value === el.placeholder;
   }
 
+  function setErrorMessage(el, message) {
+    $(el).data('errorMessage', message);
+  }
+
+  function showErrorMessage(el) {
+    var $el = $(el);
+    var $errorContainer = $el.siblings('.error');
+    if (!errorContainer.length) {
+      $errorContainer = $('<span class="error"></span>').inserAfter($el);
+    }
+    $errorContainer.text($(el).data('errorMessage'));
+  }
+
 }());
