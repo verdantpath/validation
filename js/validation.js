@@ -87,6 +87,35 @@
     }
   }
 
+  // functions for custom validation
+  // if user is less than 13 years old, check that parents consent checkbox is checked (dependency birthday.js)
+  function validateParentsConsent() {
+    var parentsConsent = document.getElementById('parents-consent');
+    var consentContainer = document.getElementById('consent-container');
+    var valid = true;
+    if (consentContainer.className.indexOf('hide') === -1) { // if checkbox shown
+      valid = parentsConsent.checked;
+      if (!valid) {
+        setErrorMessage(parentsConsent, 'You need your parent\'s consent'); // if not set the error message
+      }
+    }
+    return valid; // return whether valid or not
+  }
+
+  // check if the bio is less than or equal to 140 characters
+  function validateBio() {
+    var bio = document.getElementById('bio');
+    var valid = bio.value.length <= 140;
+    if (!valid) {
+      setErrorMessage(bio, 'Please make sure your bio does not exceed 140 characters');
+    }
+    return valid;
+  }
+
+  
+
+
+
   // object for checking types
   var validateType = {
     email: function (el) {
