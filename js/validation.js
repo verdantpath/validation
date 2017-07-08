@@ -87,4 +87,29 @@
     }
   }
 
+  // object for checking types
+  var validateType = {
+    email: function (el) {
+      var valid = /[^@]+@[^@]+/.test(el.value);
+      if (!valid) {
+        setErrorMessage(el, 'Please enter a valid email');
+      }
+      return valid;
+    },
+    number: function (el) {
+      var valid = /^\d+$/.test(el.value);
+      if (!valid) {
+        serErrorMessage(el, 'Please enter a vaild number');
+      }
+      return valid;
+    },
+    date: function (el) {
+      var valid = /^(\d{2}\/\d{2}\/\d{4}) | (\d{4}-\d{2}-\d{2})$/.test(el.value);
+      if (!valid) {
+        setErrorMessage(el, 'Please enter a valid date');
+      }
+      return valid;
+    }
+  };
+
 }());
