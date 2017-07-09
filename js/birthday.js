@@ -14,7 +14,7 @@
     toggleParentsConsent(new Date(dob[0], dob[1] -1, dob[2]));
   }
   function toggleParentsConsent(date) {
-    if (isNan(date)) return;
+    if (isNaN(date)) return;
     var now = new Date();
     // if difference (now - birthday) is less than 13 years
     // show parents consent checkbox
