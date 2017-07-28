@@ -4,6 +4,16 @@
     <title>JavaScript &amp; jQuery - Chapter 13: Form Enhancement and Validation - Validation</title>
     <link rel="stylesheet" href="css/c13.css" />
     <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <style>
+      .one-third.column img ~ div {
+        /*display: block;*/
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .one-third.column img ~ div a {
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
   <div class="container">
@@ -62,5 +72,12 @@
   <script src="js/birthday.js"></script>
   <script src="js/validation.js"></script>
   <script src="js/bio.js"></script>
+
+  <!-- code practice-->
+  <script>
+  $(document).ready(function() {
+    $('<div class="phone-wrapper"><a href="#">415-457-1678</a></div>').insertAfter('#logo');
+  });
+  </script>
   </body>
 </html>
